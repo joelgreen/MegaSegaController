@@ -40,9 +40,12 @@ void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id 
 
 - (void)didConnectToSocket
 {
-    //{ “command” : “connect”, “user” : “0123”}
+    // This tells the server what user I am and that I am connecting
+    // On disconnect the socket manager will attempt to reconnect
+    // This method is called on every successful connect to the TCP server
+    
+    // Json format: { “command” : “connect”, “user” : “0123”}
     [self.socketManager sendCommand:@{@"command" : @"connect", @"user" : self.userCode }];
-
 }
 
 // These were used if I have buttons above the A and B
@@ -51,9 +54,7 @@ void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id 
 
 - (void)viewDidLayoutSubviews
 {
-    
-    //This is done if viewDidLayoutSubviews so that the views bounds are correctly oriented for landscape
-    
+    //This is done in viewDidLayoutSubviews so that the views bounds are correctly oriented for landscape
     CGRect bounds = self.view.bounds;
     
     //**************************************************
@@ -86,13 +87,12 @@ void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id 
     //**************************************************
     //******************  Joystick   *******************
     
-    float size = 150; //128
+    float size = 150;
     MFLJoystick *joystick = [[MFLJoystick alloc] initWithFrame:CGRectMake(40, 90, size, size)];
     [joystick setThumbImage:[UIImage imageNamed:@"joy_thumb.png"]
                  andBGImage:[UIImage imageNamed:@"stick_base.png"]];
     [joystick setDelegate:self];
     [self.view addSubview:joystick];
-    
 }
 
 #pragma mark - Button Events
@@ -140,7 +140,6 @@ void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id 
 
 }
 
-
 //**************************************************
 //******************  Vibrate   ********************
 
@@ -185,11 +184,14 @@ void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id 
 
 #pragma mark - joystick direction handler
 
-int prevDirection = 0; //0: mid, 1: up, 2: right, 3: down, 4: left --more shit in constant header
+int prevDirection = 0; //0: mid, 1: up, 2: right, 3: down, 4: left --shit defined in constant header
 // fucktion that pleasures your moms joystick
 - (void)joystick:(MFLJoystick *)aJoystick didUpdate:(CGPoint)dir
 {
-//    NSLog(@"%@", NSStringFromCGPoint(dir));
+    // OK so this figures out the direction of the joystick
+    // (the dir vector makes no sense so its messy)
+    // If it changes direction it sends a keyup for the previous direction
+    // and then sends a key down for the new direction
     
     float x = dir.x;
     float y = dir.y;
@@ -198,7 +200,6 @@ int prevDirection = 0; //0: mid, 1: up, 2: right, 3: down, 4: left --more shit i
         if (prevDirection != MID) {
             if (prevDirection != MID) [self sendCommandDictForKey:[self key:prevDirection] type:@"UP"];
             NSLog(@"mid");
-//            [self sendCommandDictForKey:[self key:MID] type:@"DOWN"];
             prevDirection = MID;
         }
     } else if (x > 1 && y > 0) {
@@ -271,7 +272,11 @@ int prevDirection = 0; //0: mid, 1: up, 2: right, 3: down, 4: left --more shit i
 
 - (NSString *)key:(int)keyNumber
 {
-    NSString *key = nil;
+    // Returns the approiate number the server expects for a corrisponding key press
+    // Will send a different key if player 1 or player 2
+    // Mostly self explanatory
+    
+    NSString *key = @"";
     
     switch (keyNumber) {
         case UP:
@@ -327,6 +332,7 @@ int prevDirection = 0; //0: mid, 1: up, 2: right, 3: down, 4: left --more shit i
     return key;
 }
 
+// You mom is so fat the NASA probed her for extraterrestrial life
 - (void)sendCommandDictForKey:(NSString *)key type:(NSString *)type
 {
     //json format { “command” : “key”, “type” : “up”, “user” : “0123”, “keyCode” : “88”}
