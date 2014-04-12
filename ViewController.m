@@ -45,11 +45,20 @@ void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id 
 
 }
 
+// These were used if I have buttons above the A and B
+#define heightRatioBig 1
+#define heightRatioSmall (1 - heightRatioBig)
+
 - (void)viewDidLayoutSubviews
 {
+    
+    //This is done if viewDidLayoutSubviews so that the views bounds are correctly oriented for landscape
+    
     CGRect bounds = self.view.bounds;
     
-    UIButton *buttonA = [[UIButton alloc] initWithFrame:CGRectMake(bounds.size.width *.8, bounds.origin.y, bounds.size.width * .2, bounds.size.height)];
+    //**************************************************
+    //******************  Button A   *******************
+    UIButton *buttonA = [[UIButton alloc] initWithFrame:CGRectMake(bounds.size.width *.8, bounds.size.height * heightRatioSmall, bounds.size.width * .2, bounds.size.height * heightRatioBig)];
     
     [buttonA addTarget:self action:@selector(buttonAPressed:) forControlEvents:UIControlEventTouchDown];
     [buttonA addTarget:self action:@selector(buttonAReleased:) forControlEvents:UIControlEventTouchUpInside];
@@ -60,8 +69,9 @@ void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id 
     [self.view addSubview:buttonA];
     self.buttonA = buttonA;
     
-    
-    UIButton *buttonb = [[UIButton alloc] initWithFrame:CGRectMake(bounds.size.width *.6, bounds.origin.y, bounds.size.width * .2, bounds.size.height)];
+    //**************************************************
+    //******************  Button B   *******************
+    UIButton *buttonb = [[UIButton alloc] initWithFrame:CGRectMake(bounds.size.width *.6, bounds.size.height *heightRatioSmall, bounds.size.width * .2, bounds.size.height *heightRatioBig)];
     
     [buttonb addTarget:self action:@selector(buttonBPressed:) forControlEvents:UIControlEventTouchDown];
     [buttonb addTarget:self action:@selector(buttonBReleased:) forControlEvents:UIControlEventTouchUpInside];
@@ -73,6 +83,9 @@ void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id 
     [self.view addSubview:buttonb];
     self.buttonB = buttonb;
     
+    //**************************************************
+    //******************  Joystick   *******************
+    
     float size = 150; //128
     MFLJoystick *joystick = [[MFLJoystick alloc] initWithFrame:CGRectMake(40, 90, size, size)];
     [joystick setThumbImage:[UIImage imageNamed:@"joy_thumb.png"]
@@ -82,7 +95,10 @@ void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id 
     
 }
 
+#pragma mark - Button Events
 
+//**************************************************
+//******************  Button A   *******************
 - (void)buttonAPressed:(UIButton *)button
 {
     button.backgroundColor = [UIColor colorWithRed:0 green:0 blue:.8 alpha:1];
@@ -102,6 +118,8 @@ void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id 
 
 }
 
+//**************************************************
+//******************  Button B   *******************
 - (void)buttonBPressed:(UIButton *)button
 {
     button.backgroundColor = [UIColor colorWithRed:0.8 green:0 blue:0 alpha:1];
@@ -121,6 +139,10 @@ void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id 
     NSLog(@"B released");
 
 }
+
+
+//**************************************************
+//******************  Vibrate   ********************
 
 - (void)vibrateA
 {
@@ -144,18 +166,13 @@ void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id 
     [arr addObject:[NSNumber numberWithBool:YES]]; //vibrate
     [arr addObject:[NSNumber numberWithInt:25]];
     
-//    [arr addObject:[NSNumber numberWithBool:NO]];  //stop
-//    [arr addObject:[NSNumber numberWithInt:20]];
-    
-//    [arr addObject:[NSNumber numberWithBool:YES]]; //vibrate
-//    [arr addObject:[NSNumber numberWithInt:10]];
-    
     [dict setObject:arr forKey:@"VibePattern"];
     [dict setObject:[NSNumber numberWithInt:1] forKey:@"Intensity"];
     
     AudioServicesPlaySystemSoundWithVibration(4095,nil,dict);
 }
 
+//DONT THINK ILL BE USING THIS FUNCTION FUCK HACKATHONS
 - (UIColor *)randomColor
 {
     CGFloat hue = ( arc4random() % 256 / 256.0 );  //  0.0 to 1.0
@@ -165,7 +182,10 @@ void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id 
     return color;
 }
 
-int prevDirection = 0; //0: mid, 1: up, 2: right, 3: down, 4: left
+
+#pragma mark - joystick direction handler
+
+int prevDirection = 0; //0: mid, 1: up, 2: right, 3: down, 4: left --more shit in constant header
 // fucktion that pleasures your moms joystick
 - (void)joystick:(MFLJoystick *)aJoystick didUpdate:(CGPoint)dir
 {
@@ -225,7 +245,9 @@ int prevDirection = 0; //0: mid, 1: up, 2: right, 3: down, 4: left
     }
 
 }
-/*
+
+/* **** These are the numbers the game expects ****
+ 
  88 KEY_A      // X
  89 KEY_B      // Y (Central European keyboard)
  90 KEY_B      // Z
@@ -244,7 +266,9 @@ int prevDirection = 0; //0: mid, 1: up, 2: right, 3: down, 4: left
  98 KEY_DOWN   // Num-2
  100 KEY_LEFT  // Num-4
  102 KEY_RIGHT // Num-6
+
  */
+
 - (NSString *)key:(int)keyNumber
 {
     NSString *key = nil;
