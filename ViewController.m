@@ -25,7 +25,10 @@
 
 int playerNumber = 1;
 
+// Don't think this function is app store legal but it is required to vibrate for a custom duration
+// Declared here to prevent warning
 void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id arg,NSDictionary* vibratePattern);
+
 
 - (void)viewDidLoad
 {
@@ -72,17 +75,17 @@ void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id 
     
     //**************************************************
     //******************  Button B   *******************
-    UIButton *buttonb = [[UIButton alloc] initWithFrame:CGRectMake(bounds.size.width *.6, bounds.size.height *heightRatioSmall, bounds.size.width * .2, bounds.size.height *heightRatioBig)];
+    UIButton *buttonB = [[UIButton alloc] initWithFrame:CGRectMake(bounds.size.width *.6, bounds.size.height *heightRatioSmall, bounds.size.width * .2, bounds.size.height *heightRatioBig)];
     
-    [buttonb addTarget:self action:@selector(buttonBPressed:) forControlEvents:UIControlEventTouchDown];
-    [buttonb addTarget:self action:@selector(buttonBReleased:) forControlEvents:UIControlEventTouchUpInside];
-    [buttonb addTarget:self action:@selector(buttonBReleased:) forControlEvents:UIControlEventTouchUpOutside];
+    [buttonB addTarget:self action:@selector(buttonBPressed:) forControlEvents:UIControlEventTouchDown];
+    [buttonB addTarget:self action:@selector(buttonBReleased:) forControlEvents:UIControlEventTouchUpInside];
+    [buttonB addTarget:self action:@selector(buttonBReleased:) forControlEvents:UIControlEventTouchUpOutside];
     
-    buttonb.backgroundColor = [UIColor redColor];
-    [buttonb setTitle:@"B" forState:UIControlStateNormal];
+    buttonB.backgroundColor = [UIColor redColor];
+    [buttonB setTitle:@"B" forState:UIControlStateNormal];
 
-    [self.view addSubview:buttonb];
-    self.buttonB = buttonb;
+    [self.view addSubview:buttonB];
+    self.buttonB = buttonB;
     
     //**************************************************
     //******************  Joystick   *******************
@@ -148,7 +151,7 @@ void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id 
     NSMutableDictionary* dict = [NSMutableDictionary dictionary];
     NSMutableArray* arr = [NSMutableArray array ];
     
-    [arr addObject:[NSNumber numberWithBool:YES]]; //vibrate for 2000ms
+    [arr addObject:[NSNumber numberWithBool:YES]]; //vibrate for 40ms
     [arr addObject:[NSNumber numberWithInt:40]];
     
     [dict setObject:arr forKey:@"VibePattern"];
@@ -156,14 +159,16 @@ void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id 
     
     AudioServicesPlaySystemSoundWithVibration(4095,nil,dict);
 }
-
+// Vibrate for tapping A and B are different durations to allow tatical feedback
+// User can differentiate between presses without looking at controller
 - (void)vibrateB
 {
     NSMutableDictionary* dict = [NSMutableDictionary dictionary];
     NSMutableArray* arr = [NSMutableArray array ];
     
-    [arr addObject:[NSNumber numberWithBool:YES]]; //vibrate
+    [arr addObject:[NSNumber numberWithBool:YES]]; //vibrate for 25ms
     [arr addObject:[NSNumber numberWithInt:25]];
+    // To add period of no vibration use same format with bool set to NO
     
     [dict setObject:arr forKey:@"VibePattern"];
     [dict setObject:[NSNumber numberWithInt:1] forKey:@"Intensity"];
@@ -201,6 +206,7 @@ int prevDirection = 0; //0: mid, 1: up, 2: right, 3: down, 4: left --shit define
             if (prevDirection != MID) [self sendCommandDictForKey:[self key:prevDirection] type:@"UP"];
             NSLog(@"mid");
             prevDirection = MID;
+            // Dendi Pudge mid GG pro hooks
         }
     } else if (x > 1 && y > 0) {
         //right so 2
@@ -249,6 +255,7 @@ int prevDirection = 0; //0: mid, 1: up, 2: right, 3: down, 4: left --shit define
 
 /* **** These are the numbers the game expects ****
  
+ --PLAYER 1--
  88 KEY_A      // X
  89 KEY_B      // Y (Central European keyboard)
  90 KEY_B      // Z
@@ -259,6 +266,7 @@ int prevDirection = 0; //0: mid, 1: up, 2: right, 3: down, 4: left --shit define
  37 KEY_LEFT   // Left
  39 KEY_RIGHT  // Right
  
+ --PLAYER 2--
  103 KEY_A     // Num-7
  105 KEY_B     // Num-9
  99 KEY_SELECT // Num-3
@@ -332,7 +340,7 @@ int prevDirection = 0; //0: mid, 1: up, 2: right, 3: down, 4: left --shit define
     return key;
 }
 
-// You mom is so fat the NASA probed her for extraterrestrial life
+// You mom is so fat that NASA probed her for extraterrestrial life
 - (void)sendCommandDictForKey:(NSString *)key type:(NSString *)type
 {
     //json format { “command” : “key”, “type” : “up”, “user” : “0123”, “keyCode” : “88”}
