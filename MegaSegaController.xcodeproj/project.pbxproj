@@ -29,6 +29,19 @@
 		112008D418F97EE80086CDDB /* joy_thumb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 112008D018F97EE80086CDDB /* joy_thumb@2x.png */; };
 		112008D818F9905D0086CDDB /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 112008D718F9905D0086CDDB /* GCDAsyncSocket.m */; };
 		112008DB18F994BE0086CDDB /* SocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 112008DA18F994BE0086CDDB /* SocketManager.m */; };
+		11CEA6B918FA784B001B27F7 /* StartScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11CEA6B818FA784B001B27F7 /* StartScreenViewController.m */; };
+		11CEA6BC18FA89C2001B27F7 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 11CEA6BB18FA89C2001B27F7 /* iCarousel.m */; };
+		11CEA6D618FA980E001B27F7 /* page.png in Resources */ = {isa = PBXBuildFile; fileRef = 11CEA6D518FA980E001B27F7 /* page.png */; };
+		11CEA6E218FA9A54001B27F7 /* dk.png in Resources */ = {isa = PBXBuildFile; fileRef = 11CEA6D818FA9A54001B27F7 /* dk.png */; };
+		11CEA6E318FA9A54001B27F7 /* drmario.png in Resources */ = {isa = PBXBuildFile; fileRef = 11CEA6D918FA9A54001B27F7 /* drmario.png */; };
+		11CEA6E418FA9A54001B27F7 /* golf.png in Resources */ = {isa = PBXBuildFile; fileRef = 11CEA6DA18FA9A54001B27F7 /* golf.png */; };
+		11CEA6E518FA9A54001B27F7 /* mario bros.png in Resources */ = {isa = PBXBuildFile; fileRef = 11CEA6DB18FA9A54001B27F7 /* mario bros.png */; };
+		11CEA6E618FA9A54001B27F7 /* megaman.png in Resources */ = {isa = PBXBuildFile; fileRef = 11CEA6DC18FA9A54001B27F7 /* megaman.png */; };
+		11CEA6E718FA9A54001B27F7 /* pacman.png in Resources */ = {isa = PBXBuildFile; fileRef = 11CEA6DD18FA9A54001B27F7 /* pacman.png */; };
+		11CEA6E818FA9A54001B27F7 /* super mario bros 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 11CEA6DE18FA9A54001B27F7 /* super mario bros 3.png */; };
+		11CEA6E918FA9A54001B27F7 /* super mario bros.png in Resources */ = {isa = PBXBuildFile; fileRef = 11CEA6DF18FA9A54001B27F7 /* super mario bros.png */; };
+		11CEA6EA18FA9A54001B27F7 /* tetris.png in Resources */ = {isa = PBXBuildFile; fileRef = 11CEA6E018FA9A54001B27F7 /* tetris.png */; };
+		11CEA6EB18FA9A54001B27F7 /* zelda.png in Resources */ = {isa = PBXBuildFile; fileRef = 11CEA6E118FA9A54001B27F7 /* zelda.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +86,21 @@
 		112008D918F994BE0086CDDB /* SocketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketManager.h; sourceTree = "<group>"; };
 		112008DA18F994BE0086CDDB /* SocketManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketManager.m; sourceTree = "<group>"; };
 		112008DD18F999A30086CDDB /* ConstantsHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstantsHeader.h; sourceTree = "<group>"; };
+		11CEA6B718FA784B001B27F7 /* StartScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartScreenViewController.h; sourceTree = "<group>"; };
+		11CEA6B818FA784B001B27F7 /* StartScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartScreenViewController.m; sourceTree = "<group>"; };
+		11CEA6BA18FA89C2001B27F7 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		11CEA6BB18FA89C2001B27F7 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		11CEA6D518FA980E001B27F7 /* page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page.png; sourceTree = "<group>"; };
+		11CEA6D818FA9A54001B27F7 /* dk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dk.png; sourceTree = "<group>"; };
+		11CEA6D918FA9A54001B27F7 /* drmario.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drmario.png; sourceTree = "<group>"; };
+		11CEA6DA18FA9A54001B27F7 /* golf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = golf.png; sourceTree = "<group>"; };
+		11CEA6DB18FA9A54001B27F7 /* mario bros.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mario bros.png"; sourceTree = "<group>"; };
+		11CEA6DC18FA9A54001B27F7 /* megaman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = megaman.png; sourceTree = "<group>"; };
+		11CEA6DD18FA9A54001B27F7 /* pacman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pacman.png; sourceTree = "<group>"; };
+		11CEA6DE18FA9A54001B27F7 /* super mario bros 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "super mario bros 3.png"; sourceTree = "<group>"; };
+		11CEA6DF18FA9A54001B27F7 /* super mario bros.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "super mario bros.png"; sourceTree = "<group>"; };
+		11CEA6E018FA9A54001B27F7 /* tetris.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tetris.png; sourceTree = "<group>"; };
+		11CEA6E118FA9A54001B27F7 /* zelda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zelda.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +131,11 @@
 		1120087018F927A60086CDDB = {
 			isa = PBXGroup;
 			children = (
+				1120088E18F927A70086CDDB /* Main_iPhone.storyboard */,
+				1120089118F927A70086CDDB /* Main_iPad.storyboard */,
 				112008DD18F999A30086CDDB /* ConstantsHeader.h */,
+				11CEA6D718FA9A54001B27F7 /* imgs */,
+				11CEA6BD18FA89C6001B27F7 /* iCarousel */,
 				11F3E95118FA4C78001AD655 /* Socket */,
 				112008D518F97EEC0086CDDB /* MFLJoystick */,
 				1120088218F927A60086CDDB /* MegaSegaController */,
@@ -139,8 +171,8 @@
 			children = (
 				1120088B18F927A70086CDDB /* AppDelegate.h */,
 				1120088C18F927A70086CDDB /* AppDelegate.m */,
-				1120088E18F927A70086CDDB /* Main_iPhone.storyboard */,
-				1120089118F927A70086CDDB /* Main_iPad.storyboard */,
+				11CEA6B718FA784B001B27F7 /* StartScreenViewController.h */,
+				11CEA6B818FA784B001B27F7 /* StartScreenViewController.m */,
 				1120089418F927A70086CDDB /* ViewController.h */,
 				1120089518F927A70086CDDB /* ViewController.m */,
 				1120089718F927A70086CDDB /* Images.xcassets */,
@@ -188,6 +220,33 @@
 				112008D018F97EE80086CDDB /* joy_thumb@2x.png */,
 			);
 			name = MFLJoystick;
+			sourceTree = "<group>";
+		};
+		11CEA6BD18FA89C6001B27F7 /* iCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				11CEA6D518FA980E001B27F7 /* page.png */,
+				11CEA6BA18FA89C2001B27F7 /* iCarousel.h */,
+				11CEA6BB18FA89C2001B27F7 /* iCarousel.m */,
+			);
+			name = iCarousel;
+			sourceTree = "<group>";
+		};
+		11CEA6D718FA9A54001B27F7 /* imgs */ = {
+			isa = PBXGroup;
+			children = (
+				11CEA6D818FA9A54001B27F7 /* dk.png */,
+				11CEA6D918FA9A54001B27F7 /* drmario.png */,
+				11CEA6DA18FA9A54001B27F7 /* golf.png */,
+				11CEA6DB18FA9A54001B27F7 /* mario bros.png */,
+				11CEA6DC18FA9A54001B27F7 /* megaman.png */,
+				11CEA6DD18FA9A54001B27F7 /* pacman.png */,
+				11CEA6DE18FA9A54001B27F7 /* super mario bros 3.png */,
+				11CEA6DF18FA9A54001B27F7 /* super mario bros.png */,
+				11CEA6E018FA9A54001B27F7 /* tetris.png */,
+				11CEA6E118FA9A54001B27F7 /* zelda.png */,
+			);
+			path = imgs;
 			sourceTree = "<group>";
 		};
 		11F3E95118FA4C78001AD655 /* Socket */ = {
@@ -280,13 +339,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11CEA6E218FA9A54001B27F7 /* dk.png in Resources */,
 				1120089318F927A70086CDDB /* Main_iPad.storyboard in Resources */,
 				112008D218F97EE80086CDDB /* stick_base.png in Resources */,
+				11CEA6E318FA9A54001B27F7 /* drmario.png in Resources */,
 				1120089818F927A70086CDDB /* Images.xcassets in Resources */,
+				11CEA6EB18FA9A54001B27F7 /* zelda.png in Resources */,
+				11CEA6E618FA9A54001B27F7 /* megaman.png in Resources */,
 				1120089018F927A70086CDDB /* Main_iPhone.storyboard in Resources */,
 				1120088718F927A70086CDDB /* InfoPlist.strings in Resources */,
+				11CEA6E818FA9A54001B27F7 /* super mario bros 3.png in Resources */,
+				11CEA6D618FA980E001B27F7 /* page.png in Resources */,
+				11CEA6E918FA9A54001B27F7 /* super mario bros.png in Resources */,
 				112008D418F97EE80086CDDB /* joy_thumb@2x.png in Resources */,
+				11CEA6E718FA9A54001B27F7 /* pacman.png in Resources */,
 				112008D318F97EE80086CDDB /* joy_thumb.png in Resources */,
+				11CEA6E418FA9A54001B27F7 /* golf.png in Resources */,
+				11CEA6EA18FA9A54001B27F7 /* tetris.png in Resources */,
+				11CEA6E518FA9A54001B27F7 /* mario bros.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,7 +380,9 @@
 				1120088D18F927A70086CDDB /* AppDelegate.m in Sources */,
 				1120088918F927A70086CDDB /* main.m in Sources */,
 				112008DB18F994BE0086CDDB /* SocketManager.m in Sources */,
+				11CEA6BC18FA89C2001B27F7 /* iCarousel.m in Sources */,
 				112008D118F97EE80086CDDB /* MFLJoystick.m in Sources */,
+				11CEA6B918FA784B001B27F7 /* StartScreenViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +419,7 @@
 				1120088F18F927A70086CDDB /* Base */,
 			);
 			name = Main_iPhone.storyboard;
+			path = MegaSegaController;
 			sourceTree = "<group>";
 		};
 		1120089118F927A70086CDDB /* Main_iPad.storyboard */ = {
@@ -355,6 +428,7 @@
 				1120089218F927A70086CDDB /* Base */,
 			);
 			name = Main_iPad.storyboard;
+			path = MegaSegaController;
 			sourceTree = "<group>";
 		};
 		112008A718F927A70086CDDB /* InfoPlist.strings */ = {

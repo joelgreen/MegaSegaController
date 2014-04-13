@@ -10,6 +10,7 @@
 
 #define HOST @"23.236.155.170"
 #define PORT 7331
+
 #define TERMINATOR @"e958248b"
 
 

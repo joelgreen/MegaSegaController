@@ -16,7 +16,6 @@
 
 @property (weak, nonatomic) UIButton *buttonA;
 @property (weak, nonatomic) UIButton *buttonB;
-@property (strong, nonatomic) NSString *userCode;
 @property (strong, nonatomic) SocketManager *socketManager;
 
 @end
@@ -33,7 +32,9 @@ void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.userCode = @"123";
+    
+//    self.userCode = @"6145"; //user code set by presenting view controller
+    
     _socketManager = [[SocketManager alloc] init];
     
     // Listens to know if it should send reconnect info to server
@@ -137,6 +138,21 @@ void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id 
                  andBGImage:[UIImage imageNamed:@"stick_base.png"]];
     [joystick setDelegate:self];
     [self.view addSubview:joystick];
+    
+    
+    //**************************************************
+    //****************  Exit Button   ******************
+    
+    UIButton *exitButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
+    [exitButton setTitle:@"X" forState:UIControlStateNormal];
+    exitButton.backgroundColor = [UIColor redColor];
+    [exitButton addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:exitButton];
+}
+
+- (void)dismiss
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Button Events
@@ -423,6 +439,10 @@ int prevDirection = 0; //0: mid, 1: up, 2: right, 3: down, 4: left --shit define
     NSLog(@"%@, %@",key, type);
     NSDictionary *commandDict = @{@"command" : @"key", @"type" : type, @"user" : self.userCode, @"keyCode" : key};
     [self.socketManager sendCommand:commandDict];
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 @end
