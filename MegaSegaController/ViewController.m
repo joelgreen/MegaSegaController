@@ -98,21 +98,28 @@ void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id 
     [buttonA addTarget:self action:@selector(buttonAReleased:) forControlEvents:UIControlEventTouchUpInside];
     [buttonA addTarget:self action:@selector(buttonAReleased:) forControlEvents:UIControlEventTouchUpOutside];
 
-    buttonA.backgroundColor = [UIColor blueColor];
-    [buttonA setTitle:@"A" forState:UIControlStateNormal];
+    buttonA.backgroundColor = [UIColor clearColor];
+//    [buttonA setTitle:@"A" forState:UIControlStateNormal];
+    [buttonA setImage:[UIImage imageNamed:@"a_button"] forState:UIControlStateNormal];
+    buttonA.layer.borderColor = UIColorFromRGB(0x95a5a6).CGColor;
+    buttonA.layer.borderWidth = 2;
+    
+    
     [self.view addSubview:buttonA];
     self.buttonA = buttonA;
     
     //**************************************************
     //******************  Button B   *******************
-    UIButton *buttonB = [[UIButton alloc] initWithFrame:CGRectMake(bounds.size.width *.6, bounds.size.height *heightRatioSmall, bounds.size.width * .2, bounds.size.height *heightRatioBig)];
+    UIButton *buttonB = [[UIButton alloc] initWithFrame:CGRectMake(bounds.size.width *.6 + 2, bounds.size.height *heightRatioSmall, bounds.size.width * .2, bounds.size.height *heightRatioBig)];
     
     [buttonB addTarget:self action:@selector(buttonBPressed:) forControlEvents:UIControlEventTouchDown];
     [buttonB addTarget:self action:@selector(buttonBReleased:) forControlEvents:UIControlEventTouchUpInside];
     [buttonB addTarget:self action:@selector(buttonBReleased:) forControlEvents:UIControlEventTouchUpOutside];
     
-    buttonB.backgroundColor = [UIColor redColor];
-    [buttonB setTitle:@"B" forState:UIControlStateNormal];
+    buttonB.backgroundColor = [UIColor clearColor];
+    [buttonB setImage:[UIImage imageNamed:@"b_button"] forState:UIControlStateNormal];
+    buttonB.layer.borderColor = UIColorFromRGB(0x95a5a6).CGColor;
+    buttonB.layer.borderWidth = 2;
 
     [self.view addSubview:buttonB];
     self.buttonB = buttonB;
@@ -126,10 +133,24 @@ void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id 
     [startButton addTarget:self action:@selector(startButtonReleased:) forControlEvents:UIControlEventTouchUpInside];
     [startButton addTarget:self action:@selector(startButtonReleased:) forControlEvents:UIControlEventTouchUpOutside];
     
-    startButton.backgroundColor = [UIColor yellowColor];
-    [startButton setTitle:@"Start" forState:UIControlStateNormal];
-    
     [self.view addSubview:startButton];
+    
+    //**************************************************
+    //****************  Select Button   ****************
+    
+    UIButton *selectButton = [[UIButton alloc] initWithFrame:CGRectMake(bounds.size.width *.6, 0, bounds.size.width * .2, bounds.size.height *heightRatioSmall)];
+    
+    [selectButton addTarget:self action:@selector(selectButtonPressed:) forControlEvents:UIControlEventTouchDown];
+    [selectButton addTarget:self action:@selector(selectButtonReleased:) forControlEvents:UIControlEventTouchUpInside];
+    [selectButton addTarget:self action:@selector(selectButtonReleased:) forControlEvents:UIControlEventTouchUpOutside];
+    
+    [self.view addSubview:selectButton];
+
+    // Add the image for the startSelect button combo
+    UIImageView *startSelectImage = [[UIImageView alloc] initWithFrame:CGRectMake(bounds.size.width *.6, 0, bounds.size.width * .4, bounds.size.height *heightRatioSmall)];
+    
+    [startSelectImage setImage:[UIImage imageNamed:@"start"]];
+    [self.view addSubview:startSelectImage];
     
     //**************************************************
     //******************  Joystick   *******************
@@ -145,7 +166,7 @@ void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id 
     //**************************************************
     //****************  Exit Button   ******************
     
-    UIButton *exitButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
+    UIButton *exitButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
     [exitButton setTitle:@"X" forState:UIControlStateNormal];
     exitButton.backgroundColor = [UIColor redColor];
     [exitButton addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
@@ -163,7 +184,7 @@ void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id 
 //******************  Button A   *******************
 - (void)buttonAPressed:(UIButton *)button
 {
-    button.backgroundColor = [UIColor colorWithRed:0 green:0 blue:.8 alpha:1];
+    button.backgroundColor = UIColorFromRGB(0xDDDDDD);
 //    AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
     [self vibrateA];
     [self sendCommandDictForKey:[self key:A] type:@"DOWN"];
@@ -173,7 +194,7 @@ void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id 
 
 - (void)buttonAReleased:(UIButton *)button
 {
-    button.backgroundColor = [UIColor blueColor];
+    button.backgroundColor = [UIColor clearColor];
     NSLog(@"A released");
     [self sendCommandDictForKey:[self key:A] type:@"UP"];
 
@@ -184,7 +205,7 @@ void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id 
 //******************  Button B   *******************
 - (void)buttonBPressed:(UIButton *)button
 {
-    button.backgroundColor = [UIColor colorWithRed:0.8 green:0 blue:0 alpha:1];
+    button.backgroundColor = UIColorFromRGB(0xDDDDDD);
 //    AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
     [self vibrateB];
     [self sendCommandDictForKey:[self key:B] type:@"DOWN"];
@@ -195,7 +216,7 @@ void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id 
 
 - (void)buttonBReleased:(UIButton *)button
 {
-    button.backgroundColor = [UIColor redColor];
+    button.backgroundColor = [UIColor clearColor];
     [self sendCommandDictForKey:[self key:B] type:@"UP"];
 
     NSLog(@"B released");
@@ -207,7 +228,7 @@ void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id 
 
 - (void)startButtonPressed:(UIButton *)button
 {
-    button.backgroundColor = UIColorFromRGB(0xDDDD00);
+    button.backgroundColor = UIColorFromRGB(0xDDDDDD);
     //    AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
     [self vibrateStart];
     [self sendCommandDictForKey:[self key:START] type:@"DOWN"];
@@ -218,9 +239,32 @@ void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id 
 
 - (void)startButtonReleased:(UIButton *)button
 {
-    button.backgroundColor = [UIColor yellowColor];
+    button.backgroundColor = [UIColor clearColor];
     [self sendCommandDictForKey:[self key:START] type:@"UP"];
 
+    NSLog(@"Start released");
+    
+}
+
+//**************************************************
+//****************  Start Button   *****************
+
+- (void)selectButtonPressed:(UIButton *)button
+{
+    button.backgroundColor = UIColorFromRGB(0xDDDDDD);
+    //    AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+    [self vibrateStart];
+    [self sendCommandDictForKey:[self key:START] type:@"DOWN"];
+    
+    NSLog(@"Start pressed");
+    
+}
+
+- (void)selectButtonReleased:(UIButton *)button
+{
+    button.backgroundColor = [UIColor clearColor];
+    [self sendCommandDictForKey:[self key:START] type:@"UP"];
+    
     NSLog(@"Start released");
     
 }
@@ -424,6 +468,14 @@ int prevDirection = 0; //0: mid, 1: up, 2: right, 3: down, 4: left --shit define
                 return @"13";
             } else {
                 return @"97";
+            }
+            break;
+            
+        case SELECT:
+            if (playerNumber == 1) {
+                return @"17";
+            } else {
+                return @"99";
             }
             break;
             
