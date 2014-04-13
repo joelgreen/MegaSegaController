@@ -1,0 +1,548 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1120087D18F927A60086CDDB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1120087C18F927A60086CDDB /* Foundation.framework */; };
+		1120087F18F927A60086CDDB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1120087E18F927A60086CDDB /* CoreGraphics.framework */; };
+		1120088118F927A60086CDDB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1120088018F927A60086CDDB /* UIKit.framework */; };
+		1120088718F927A70086CDDB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1120088518F927A70086CDDB /* InfoPlist.strings */; };
+		1120088918F927A70086CDDB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1120088818F927A70086CDDB /* main.m */; };
+		1120088D18F927A70086CDDB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1120088C18F927A70086CDDB /* AppDelegate.m */; };
+		1120089018F927A70086CDDB /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1120088E18F927A70086CDDB /* Main_iPhone.storyboard */; };
+		1120089318F927A70086CDDB /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1120089118F927A70086CDDB /* Main_iPad.storyboard */; };
+		1120089618F927A70086CDDB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1120089518F927A70086CDDB /* ViewController.m */; };
+		1120089818F927A70086CDDB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1120089718F927A70086CDDB /* Images.xcassets */; };
+		1120089F18F927A70086CDDB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1120089E18F927A70086CDDB /* XCTest.framework */; };
+		112008A018F927A70086CDDB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1120087C18F927A60086CDDB /* Foundation.framework */; };
+		112008A118F927A70086CDDB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1120088018F927A60086CDDB /* UIKit.framework */; };
+		112008A918F927A70086CDDB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 112008A718F927A70086CDDB /* InfoPlist.strings */; };
+		112008AB18F927A70086CDDB /* MegaSegaControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 112008AA18F927A70086CDDB /* MegaSegaControllerTests.m */; };
+		112008B518F933280086CDDB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 112008B418F933280086CDDB /* AudioToolbox.framework */; };
+		112008D118F97EE80086CDDB /* MFLJoystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 112008CD18F97EE80086CDDB /* MFLJoystick.m */; };
+		112008D218F97EE80086CDDB /* stick_base.png in Resources */ = {isa = PBXBuildFile; fileRef = 112008CE18F97EE80086CDDB /* stick_base.png */; };
+		112008D318F97EE80086CDDB /* joy_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 112008CF18F97EE80086CDDB /* joy_thumb.png */; };
+		112008D418F97EE80086CDDB /* joy_thumb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 112008D018F97EE80086CDDB /* joy_thumb@2x.png */; };
+		112008D818F9905D0086CDDB /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 112008D718F9905D0086CDDB /* GCDAsyncSocket.m */; };
+		112008DB18F994BE0086CDDB /* SocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 112008DA18F994BE0086CDDB /* SocketManager.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		112008A218F927A70086CDDB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1120087118F927A60086CDDB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1120087818F927A60086CDDB;
+			remoteInfo = MegaSegaController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1120087918F927A60086CDDB /* MegaSegaController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MegaSegaController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1120087C18F927A60086CDDB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1120087E18F927A60086CDDB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1120088018F927A60086CDDB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1120088418F927A60086CDDB /* MegaSegaController-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MegaSegaController-Info.plist"; sourceTree = "<group>"; };
+		1120088618F927A70086CDDB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1120088818F927A70086CDDB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1120088A18F927A70086CDDB /* MegaSegaController-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MegaSegaController-Prefix.pch"; sourceTree = "<group>"; };
+		1120088B18F927A70086CDDB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1120088C18F927A70086CDDB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1120088F18F927A70086CDDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		1120089218F927A70086CDDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		1120089418F927A70086CDDB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		1120089518F927A70086CDDB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		1120089718F927A70086CDDB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1120089D18F927A70086CDDB /* MegaSegaControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MegaSegaControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1120089E18F927A70086CDDB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		112008A618F927A70086CDDB /* MegaSegaControllerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MegaSegaControllerTests-Info.plist"; sourceTree = "<group>"; };
+		112008A818F927A70086CDDB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		112008AA18F927A70086CDDB /* MegaSegaControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MegaSegaControllerTests.m; sourceTree = "<group>"; };
+		112008B418F933280086CDDB /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		112008CC18F97EE80086CDDB /* MFLJoystick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFLJoystick.h; sourceTree = "<group>"; };
+		112008CD18F97EE80086CDDB /* MFLJoystick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFLJoystick.m; sourceTree = "<group>"; };
+		112008CE18F97EE80086CDDB /* stick_base.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stick_base.png; sourceTree = "<group>"; };
+		112008CF18F97EE80086CDDB /* joy_thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = joy_thumb.png; sourceTree = "<group>"; };
+		112008D018F97EE80086CDDB /* joy_thumb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "joy_thumb@2x.png"; sourceTree = "<group>"; };
+		112008D618F9905D0086CDDB /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		112008D718F9905D0086CDDB /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		112008D918F994BE0086CDDB /* SocketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketManager.h; sourceTree = "<group>"; };
+		112008DA18F994BE0086CDDB /* SocketManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketManager.m; sourceTree = "<group>"; };
+		112008DD18F999A30086CDDB /* ConstantsHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstantsHeader.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1120087618F927A60086CDDB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				112008B518F933280086CDDB /* AudioToolbox.framework in Frameworks */,
+				1120087F18F927A60086CDDB /* CoreGraphics.framework in Frameworks */,
+				1120088118F927A60086CDDB /* UIKit.framework in Frameworks */,
+				1120087D18F927A60086CDDB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1120089A18F927A70086CDDB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1120089F18F927A70086CDDB /* XCTest.framework in Frameworks */,
+				112008A118F927A70086CDDB /* UIKit.framework in Frameworks */,
+				112008A018F927A70086CDDB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1120087018F927A60086CDDB = {
+			isa = PBXGroup;
+			children = (
+				112008DD18F999A30086CDDB /* ConstantsHeader.h */,
+				11F3E95118FA4C78001AD655 /* Socket */,
+				112008D518F97EEC0086CDDB /* MFLJoystick */,
+				1120088218F927A60086CDDB /* MegaSegaController */,
+				112008A418F927A70086CDDB /* MegaSegaControllerTests */,
+				1120087B18F927A60086CDDB /* Frameworks */,
+				1120087A18F927A60086CDDB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1120087A18F927A60086CDDB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1120087918F927A60086CDDB /* MegaSegaController.app */,
+				1120089D18F927A70086CDDB /* MegaSegaControllerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1120087B18F927A60086CDDB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				112008B418F933280086CDDB /* AudioToolbox.framework */,
+				1120087C18F927A60086CDDB /* Foundation.framework */,
+				1120087E18F927A60086CDDB /* CoreGraphics.framework */,
+				1120088018F927A60086CDDB /* UIKit.framework */,
+				1120089E18F927A70086CDDB /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1120088218F927A60086CDDB /* MegaSegaController */ = {
+			isa = PBXGroup;
+			children = (
+				1120088B18F927A70086CDDB /* AppDelegate.h */,
+				1120088C18F927A70086CDDB /* AppDelegate.m */,
+				1120088E18F927A70086CDDB /* Main_iPhone.storyboard */,
+				1120089118F927A70086CDDB /* Main_iPad.storyboard */,
+				1120089418F927A70086CDDB /* ViewController.h */,
+				1120089518F927A70086CDDB /* ViewController.m */,
+				1120089718F927A70086CDDB /* Images.xcassets */,
+				1120088318F927A60086CDDB /* Supporting Files */,
+			);
+			path = MegaSegaController;
+			sourceTree = "<group>";
+		};
+		1120088318F927A60086CDDB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1120088418F927A60086CDDB /* MegaSegaController-Info.plist */,
+				1120088518F927A70086CDDB /* InfoPlist.strings */,
+				1120088818F927A70086CDDB /* main.m */,
+				1120088A18F927A70086CDDB /* MegaSegaController-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		112008A418F927A70086CDDB /* MegaSegaControllerTests */ = {
+			isa = PBXGroup;
+			children = (
+				112008AA18F927A70086CDDB /* MegaSegaControllerTests.m */,
+				112008A518F927A70086CDDB /* Supporting Files */,
+			);
+			path = MegaSegaControllerTests;
+			sourceTree = "<group>";
+		};
+		112008A518F927A70086CDDB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				112008A618F927A70086CDDB /* MegaSegaControllerTests-Info.plist */,
+				112008A718F927A70086CDDB /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		112008D518F97EEC0086CDDB /* MFLJoystick */ = {
+			isa = PBXGroup;
+			children = (
+				112008CC18F97EE80086CDDB /* MFLJoystick.h */,
+				112008CD18F97EE80086CDDB /* MFLJoystick.m */,
+				112008CE18F97EE80086CDDB /* stick_base.png */,
+				112008CF18F97EE80086CDDB /* joy_thumb.png */,
+				112008D018F97EE80086CDDB /* joy_thumb@2x.png */,
+			);
+			name = MFLJoystick;
+			sourceTree = "<group>";
+		};
+		11F3E95118FA4C78001AD655 /* Socket */ = {
+			isa = PBXGroup;
+			children = (
+				112008D618F9905D0086CDDB /* GCDAsyncSocket.h */,
+				112008D718F9905D0086CDDB /* GCDAsyncSocket.m */,
+				112008D918F994BE0086CDDB /* SocketManager.h */,
+				112008DA18F994BE0086CDDB /* SocketManager.m */,
+			);
+			name = Socket;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1120087818F927A60086CDDB /* MegaSegaController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 112008AE18F927A70086CDDB /* Build configuration list for PBXNativeTarget "MegaSegaController" */;
+			buildPhases = (
+				1120087518F927A60086CDDB /* Sources */,
+				1120087618F927A60086CDDB /* Frameworks */,
+				1120087718F927A60086CDDB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MegaSegaController;
+			productName = MegaSegaController;
+			productReference = 1120087918F927A60086CDDB /* MegaSegaController.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1120089C18F927A70086CDDB /* MegaSegaControllerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 112008B118F927A70086CDDB /* Build configuration list for PBXNativeTarget "MegaSegaControllerTests" */;
+			buildPhases = (
+				1120089918F927A70086CDDB /* Sources */,
+				1120089A18F927A70086CDDB /* Frameworks */,
+				1120089B18F927A70086CDDB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				112008A318F927A70086CDDB /* PBXTargetDependency */,
+			);
+			name = MegaSegaControllerTests;
+			productName = MegaSegaControllerTests;
+			productReference = 1120089D18F927A70086CDDB /* MegaSegaControllerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1120087118F927A60086CDDB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Joel Green";
+				TargetAttributes = {
+					1120087818F927A60086CDDB = {
+						DevelopmentTeam = 3UHXHK3AGY;
+					};
+					1120089C18F927A70086CDDB = {
+						TestTargetID = 1120087818F927A60086CDDB;
+					};
+				};
+			};
+			buildConfigurationList = 1120087418F927A60086CDDB /* Build configuration list for PBXProject "MegaSegaController" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1120087018F927A60086CDDB;
+			productRefGroup = 1120087A18F927A60086CDDB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1120087818F927A60086CDDB /* MegaSegaController */,
+				1120089C18F927A70086CDDB /* MegaSegaControllerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1120087718F927A60086CDDB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1120089318F927A70086CDDB /* Main_iPad.storyboard in Resources */,
+				112008D218F97EE80086CDDB /* stick_base.png in Resources */,
+				1120089818F927A70086CDDB /* Images.xcassets in Resources */,
+				1120089018F927A70086CDDB /* Main_iPhone.storyboard in Resources */,
+				1120088718F927A70086CDDB /* InfoPlist.strings in Resources */,
+				112008D418F97EE80086CDDB /* joy_thumb@2x.png in Resources */,
+				112008D318F97EE80086CDDB /* joy_thumb.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1120089B18F927A70086CDDB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				112008A918F927A70086CDDB /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1120087518F927A60086CDDB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1120089618F927A70086CDDB /* ViewController.m in Sources */,
+				112008D818F9905D0086CDDB /* GCDAsyncSocket.m in Sources */,
+				1120088D18F927A70086CDDB /* AppDelegate.m in Sources */,
+				1120088918F927A70086CDDB /* main.m in Sources */,
+				112008DB18F994BE0086CDDB /* SocketManager.m in Sources */,
+				112008D118F97EE80086CDDB /* MFLJoystick.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1120089918F927A70086CDDB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				112008AB18F927A70086CDDB /* MegaSegaControllerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		112008A318F927A70086CDDB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1120087818F927A60086CDDB /* MegaSegaController */;
+			targetProxy = 112008A218F927A70086CDDB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1120088518F927A70086CDDB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1120088618F927A70086CDDB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1120088E18F927A70086CDDB /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1120088F18F927A70086CDDB /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		1120089118F927A70086CDDB /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1120089218F927A70086CDDB /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		112008A718F927A70086CDDB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				112008A818F927A70086CDDB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		112008AC18F927A70086CDDB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		112008AD18F927A70086CDDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		112008AF18F927A70086CDDB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MegaSegaController/MegaSegaController-Prefix.pch";
+				INFOPLIST_FILE = "MegaSegaController/MegaSegaController-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		112008B018F927A70086CDDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MegaSegaController/MegaSegaController-Prefix.pch";
+				INFOPLIST_FILE = "MegaSegaController/MegaSegaController-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		112008B218F927A70086CDDB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MegaSegaController.app/MegaSegaController";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MegaSegaController/MegaSegaController-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "MegaSegaControllerTests/MegaSegaControllerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		112008B318F927A70086CDDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MegaSegaController.app/MegaSegaController";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MegaSegaController/MegaSegaController-Prefix.pch";
+				INFOPLIST_FILE = "MegaSegaControllerTests/MegaSegaControllerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1120087418F927A60086CDDB /* Build configuration list for PBXProject "MegaSegaController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				112008AC18F927A70086CDDB /* Debug */,
+				112008AD18F927A70086CDDB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		112008AE18F927A70086CDDB /* Build configuration list for PBXNativeTarget "MegaSegaController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				112008AF18F927A70086CDDB /* Debug */,
+				112008B018F927A70086CDDB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		112008B118F927A70086CDDB /* Build configuration list for PBXNativeTarget "MegaSegaControllerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				112008B218F927A70086CDDB /* Debug */,
+				112008B318F927A70086CDDB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1120087118F927A60086CDDB /* Project object */;
+}
