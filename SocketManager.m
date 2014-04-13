@@ -24,14 +24,6 @@
 
 @implementation SocketManager
 
-- (NSData *)incomingMessage
-{
-    if (!_incomingMessage) {
-        _incomingMessage = [[NSData alloc] init];
-    }
-    return _incomingMessage;
-}
-
 - (id)init
 {
     self = [super init];
@@ -99,7 +91,7 @@
     
 }
 
-
+// in da butt
 - (void)socket:(GCDAsyncSocket *)sender didConnectToHost:(NSString *)host port:(UInt16)port
 {
     NSLog(@"Conntected to host: %@, on port: %d",HOST,PORT);

@@ -12,9 +12,6 @@
 
 @interface SocketManager : NSObject <UIApplicationDelegate, GCDAsyncSocketDelegate>
 
-@property (nonatomic, strong)NSData *incomingMessage;
-
 - (void)sendCommand:(NSDictionary *)command;
-
 
 @end
