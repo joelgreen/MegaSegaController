@@ -210,7 +210,7 @@ void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id 
 //**************************************************
 //******************  Vibrate   ********************
 
-// Vibrate for tapping A and B are different durations to allow tatical feedback
+// Vibrate when pressing buttons are different durations to allow tatical feedback
 // User can differentiate between presses without looking at controller
 - (void)vibrateA
 {
@@ -225,14 +225,15 @@ void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id 
     [self vibrateWithDuration:100];
 }
 
-- (void)vibrateWithDuration:(int)duration
+- (void)vibrateWithDuration:(int)duration //number of ms to vibrate for
 {
     NSMutableDictionary* dict = [NSMutableDictionary dictionary];
     NSMutableArray* arr = [NSMutableArray array ];
     
-    [arr addObject:[NSNumber numberWithBool:YES]]; //vibrate for duration
+    [arr addObject:[NSNumber numberWithBool:YES]]; //vibrate for duration in ms
     [arr addObject:[NSNumber numberWithInt:duration]];
     // To add period of no vibration use same format with bool set to NO
+    // These chan be chained to have custom patterns
     
     [dict setObject:arr forKey:@"VibePattern"];
     [dict setObject:[NSNumber numberWithInt:1] forKey:@"Intensity"];
@@ -264,9 +265,7 @@ int prevDirection = 0; //0: mid, 1: up, 2: right, 3: down, 4: left --shit define
     // If it changes direction it sends a keyup for the previous direction
     // and then sends a key down for the new direction
     
-    
-//    NSLog(@"%f, %f",dir.x,dir.y);
-    
+//    NSLog(@"%f, %f",dir.x,dir.y); // Lets me know the direction vector for debugging
     float x = dir.x;
     float y = dir.y;
     if (x == 0 && y == 0) {
