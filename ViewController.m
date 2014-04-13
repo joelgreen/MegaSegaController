@@ -35,9 +35,23 @@ void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id 
     [super viewDidLoad];
     self.userCode = @"123";
     _socketManager = [[SocketManager alloc] init];
+    
+    // Listens to know if it should send reconnect info to server
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(didConnectToSocket)
                                                  name:@"didConnectToSocket"
+                                               object:nil];
+    
+    // Listens to find out if user has been changed to player 1
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(setToPlayer1)
+                                                 name:@"SetToPlayer1"
+                                               object:nil];
+    
+    // Listens to find out if user has been changed to player 2
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(setToPlayer2)
+                                                 name:@"SetToPlayer2"
                                                object:nil];
 }
 
@@ -51,8 +65,21 @@ void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id 
     [self.socketManager sendCommand:@{@"command" : @"connect", @"user" : self.userCode }];
 }
 
-// These were used if I have buttons above the A and B
-#define heightRatioBig 1
+
+- (void)setToPlayer1
+{
+    NSLog(@"Player set to player 1");
+    playerNumber = 1;
+}
+
+- (void)setToPlayer2
+{
+    NSLog(@"Player set to player 2");
+    playerNumber = 2;
+}
+
+// These are used if I have buttons above the A and B
+#define heightRatioBig .75
 #define heightRatioSmall (1 - heightRatioBig)
 
 - (void)viewDidLayoutSubviews
@@ -88,9 +115,23 @@ void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id 
     self.buttonB = buttonB;
     
     //**************************************************
+    //****************  Start Button   *****************
+    
+    UIButton *startButton = [[UIButton alloc] initWithFrame:CGRectMake(bounds.size.width *.8, 0, bounds.size.width * .2, bounds.size.height *heightRatioSmall)];
+    
+    [startButton addTarget:self action:@selector(startButtonPressed:) forControlEvents:UIControlEventTouchDown];
+    [startButton addTarget:self action:@selector(startButtonReleased:) forControlEvents:UIControlEventTouchUpInside];
+    [startButton addTarget:self action:@selector(startButtonReleased:) forControlEvents:UIControlEventTouchUpOutside];
+    
+    startButton.backgroundColor = [UIColor yellowColor];
+    [startButton setTitle:@"Start" forState:UIControlStateNormal];
+    
+    [self.view addSubview:startButton];
+    
+    //**************************************************
     //******************  Joystick   *******************
     
-    float size = 150;
+    float size = 150; //or 190 for larger
     MFLJoystick *joystick = [[MFLJoystick alloc] initWithFrame:CGRectMake(40, 90, size, size)];
     [joystick setThumbImage:[UIImage imageNamed:@"joy_thumb.png"]
                  andBGImage:[UIImage imageNamed:@"stick_base.png"]];
@@ -144,30 +185,53 @@ void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id 
 }
 
 //**************************************************
+//****************  Start Button   *****************
+
+- (void)startButtonPressed:(UIButton *)button
+{
+    button.backgroundColor = UIColorFromRGB(0xDDDD00);
+    //    AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+    [self vibrateStart];
+    [self sendCommandDictForKey:[self key:START] type:@"DOWN"];
+    
+    NSLog(@"Start pressed");
+    
+}
+
+- (void)startButtonReleased:(UIButton *)button
+{
+    button.backgroundColor = [UIColor yellowColor];
+    [self sendCommandDictForKey:[self key:START] type:@"UP"];
+
+    NSLog(@"Start released");
+    
+}
+
+//**************************************************
 //******************  Vibrate   ********************
 
-- (void)vibrateA
-{
-    NSMutableDictionary* dict = [NSMutableDictionary dictionary];
-    NSMutableArray* arr = [NSMutableArray array ];
-    
-    [arr addObject:[NSNumber numberWithBool:YES]]; //vibrate for 40ms
-    [arr addObject:[NSNumber numberWithInt:40]];
-    
-    [dict setObject:arr forKey:@"VibePattern"];
-    [dict setObject:[NSNumber numberWithInt:1] forKey:@"Intensity"];
-    
-    AudioServicesPlaySystemSoundWithVibration(4095,nil,dict);
-}
 // Vibrate for tapping A and B are different durations to allow tatical feedback
 // User can differentiate between presses without looking at controller
+- (void)vibrateA
+{
+    [self vibrateWithDuration:40];
+}
 - (void)vibrateB
+{
+    [self vibrateWithDuration:25];
+}
+- (void)vibrateStart
+{
+    [self vibrateWithDuration:100];
+}
+
+- (void)vibrateWithDuration:(int)duration
 {
     NSMutableDictionary* dict = [NSMutableDictionary dictionary];
     NSMutableArray* arr = [NSMutableArray array ];
     
-    [arr addObject:[NSNumber numberWithBool:YES]]; //vibrate for 25ms
-    [arr addObject:[NSNumber numberWithInt:25]];
+    [arr addObject:[NSNumber numberWithBool:YES]]; //vibrate for duration
+    [arr addObject:[NSNumber numberWithInt:duration]];
     // To add period of no vibration use same format with bool set to NO
     
     [dict setObject:arr forKey:@"VibePattern"];
@@ -175,6 +239,8 @@ void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id 
     
     AudioServicesPlaySystemSoundWithVibration(4095,nil,dict);
 }
+
+// ************************************************************************
 
 //DONT THINK ILL BE USING THIS FUNCTION FUCK HACKATHONS
 - (UIColor *)randomColor
@@ -198,6 +264,9 @@ int prevDirection = 0; //0: mid, 1: up, 2: right, 3: down, 4: left --shit define
     // If it changes direction it sends a keyup for the previous direction
     // and then sends a key down for the new direction
     
+    
+//    NSLog(@"%f, %f",dir.x,dir.y);
+    
     float x = dir.x;
     float y = dir.y;
     if (x == 0 && y == 0) {
@@ -208,7 +277,7 @@ int prevDirection = 0; //0: mid, 1: up, 2: right, 3: down, 4: left --shit define
             prevDirection = MID;
             // Dendi Pudge mid GG pro hooks
         }
-    } else if (x > 1 && y > 0) {
+    } else if (x > 1 && y > 0) { // "x > 1 && y > 0" or "x > 2.2 && y > 0.2" for larger
         //right so 2
         if (prevDirection != RIGHT) { //idk why its right fuck it the vector makes no sense
             if (prevDirection != MID) [self sendCommandDictForKey:[self key:prevDirection] type:@"UP"];
@@ -330,6 +399,14 @@ int prevDirection = 0; //0: mid, 1: up, 2: right, 3: down, 4: left --shit define
                 return @"89";
             } else {
                 return @"105";
+            }
+            break;
+            
+        case START:
+            if (playerNumber == 1) {
+                return @"13";
+            } else {
+                return @"97";
             }
             break;
             
