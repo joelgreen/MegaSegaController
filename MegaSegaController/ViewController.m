@@ -32,6 +32,8 @@ void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"pattern"]];
+
     
 //    self.userCode = @"6145"; //user code set by presenting view controller
     
@@ -133,9 +135,9 @@ void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id 
     //******************  Joystick   *******************
     
     float size = 150; //or 190 for larger
-    MFLJoystick *joystick = [[MFLJoystick alloc] initWithFrame:CGRectMake(40, 90, size, size)];
+    MFLJoystick *joystick = [[MFLJoystick alloc] initWithFrame:CGRectMake(40, 90, size, size)]; // 70, 80 for very center yums
     [joystick setThumbImage:[UIImage imageNamed:@"joy_thumb.png"]
-                 andBGImage:[UIImage imageNamed:@"stick_base.png"]];
+                 andBGImage:[UIImage imageNamed:@"dpad"]];
     [joystick setDelegate:self];
     [self.view addSubview:joystick];
     
@@ -443,6 +445,7 @@ int prevDirection = 0; //0: mid, 1: up, 2: right, 3: down, 4: left --shit define
 
 - (BOOL)prefersStatusBarHidden {
     return YES;
+    //Hide that bar you dirty whore
 }
 
 @end

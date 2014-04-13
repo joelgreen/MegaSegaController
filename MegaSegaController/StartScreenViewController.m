@@ -64,7 +64,8 @@
     [super viewDidLoad];
     //configure carousel
     self.carousel.type = iCarouselTypeCoverFlow2;
-
+    self.carousel.backgroundColor =[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"pattern"]];
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"pattern"]];
 }
 
 
@@ -101,6 +102,11 @@
     }
     
     return view;
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+    //Imbrace insanity. UI design.
 }
 
 @end
