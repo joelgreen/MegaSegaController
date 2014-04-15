@@ -3,6 +3,8 @@ Cloud NES - iOS controller
 
 ####*This project was made in 36 hours at LA Hacks hackathon. This repository is the iOS controller app only.* 
 
+Check out the website: http://thecloudnes.com/
+
 For the server logic repository, please visit: https://github.com/ErwanLent/CloudNES-Server
 
 Cloud NES is a website that allows you to play many classic NES games with your keyboard, or with our app on any iOS device. We also support multiplayer, so users with our app can sync their app with our web page and start playing together.
